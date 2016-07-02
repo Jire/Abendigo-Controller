@@ -1,0 +1,29 @@
+group 'org.abendigo.controller'
+version '0.1'
+
+apply plugin: 'java'
+apply plugin: 'kotlin'
+apply plugin: 'application'
+
+mainClassName = "org.abendigo.controller.Controller"
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    compile group: 'io.netty', name: 'netty-all', version: '4.1.1.Final'
+}
+
+repositories {
+    mavenCentral()
+}
+
+buildscript {
+    ext.kotlin_version = '1.0.3'
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}

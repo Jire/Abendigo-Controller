@@ -8,7 +8,7 @@ import javax.swing.JLabel
 import javax.swing.JWindow
 import javax.swing.SwingConstants
 
-object Overlay : JWindow() {
+internal object Overlay : JWindow() {
 
 	private const val WIDTH = 250
 	private const val HEIGHT = 400

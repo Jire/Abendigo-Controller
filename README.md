@@ -5,3 +5,7 @@
 # Abendigo Controller
 The official controller client for [Abendigo](https://github.com/Jire/Abendigo)
 made with [Netty](http://netty.io) using Kotlin on the JVM.
+
+### Setup video guide
+
+[![View on YouTube](http://i.imgur.com/gfjsJu5.png)](https://www.youtube.com/watch?v=kAiQj6gBvl0)

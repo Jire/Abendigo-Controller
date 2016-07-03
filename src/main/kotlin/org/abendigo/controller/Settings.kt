@@ -34,8 +34,6 @@ object Settings {
 
 					nameToHotkey[pluginName] = hotkey
 					hotkeyToName[hotkey] = pluginName
-
-					println("set $pluginName to $hotkey")
 				}
 			}
 		}

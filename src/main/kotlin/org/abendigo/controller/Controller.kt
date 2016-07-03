@@ -17,5 +17,7 @@ fun main(args: Array<String>) {
 	GlobalScreen.addNativeKeyListener(Keyboard)
 	System.setOut(out)
 
+	Client.connect().syncUninterruptibly()
+
 	Overlay.isVisible = true
 }

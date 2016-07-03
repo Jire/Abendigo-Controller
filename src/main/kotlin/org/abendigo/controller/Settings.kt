@@ -5,6 +5,7 @@ import org.abendigo.controller.Plugins.nameToHotkey
 import java.nio.file.Files
 import java.nio.file.Paths
 import java.util.concurrent.Executors
+import java.util.concurrent.Executors.newSingleThreadScheduledExecutor
 import java.util.concurrent.TimeUnit
 
 object Settings {
@@ -39,8 +40,6 @@ object Settings {
 		}
 	}
 
-	private val saveWorker = Executors.newSingleThreadScheduledExecutor()
-
 	fun save(file: String = DEFAULT_FILE) {
 		with(Files.newBufferedWriter(Paths.get(file))) {
 			write("overlayX=$overlayX")
@@ -55,6 +54,6 @@ object Settings {
 		}
 	}
 
-	fun startAutosave() = saveWorker.scheduleAtFixedRate({ save() }, 3, 3, TimeUnit.SECONDS)
+	fun startAutosave() = newSingleThreadScheduledExecutor().scheduleAtFixedRate({ save() }, 3, 3, TimeUnit.SECONDS)
 
 }

@@ -21,5 +21,8 @@ fun main(args: Array<String>) {
 
 	Client.connect().syncUninterruptibly()
 
+	Settings.load()
+	Settings.startAutosave()
+
 	Overlay.isVisible = true
 }

@@ -5,6 +5,7 @@ import org.abendigo.controller.Plugins.hotkeyToName
 import org.abendigo.controller.Plugins.nameToEnabled
 import org.abendigo.controller.Plugins.nameToHotkey
 import org.abendigo.controller.Plugins.nameToLabel
+import org.abendigo.controller.Settings
 import java.awt.*
 import java.awt.event.*
 import javax.swing.JLabel
@@ -31,7 +32,7 @@ object Overlay : JWindow() {
 		isAlwaysOnTop = true
 		layout = null
 		background = BOX_COLOR
-		setBounds(0, 0, WIDTH, 0)
+		setBounds(Settings.overlayX, Settings.overlayY, WIDTH, 0)
 
 		hide = JLabel(hideText(), SwingConstants.CENTER)
 		hide.font = INSERT_TO_HIDE_FONT
@@ -43,26 +44,33 @@ object Overlay : JWindow() {
 		separator.setBounds(0, 22, width, 20)
 		add(separator)
 
-		val mma = object : MouseMotionAdapter() {
+		val mouseMotionListener = object : MouseMotionAdapter() {
 			override fun mouseDragged(e: MouseEvent) {
 				if (hotkeyChangePlugin == null) {
-					var newX = e.locationOnScreen.x - mousePressedPoint.x
-					var newY = e.locationOnScreen.y - mousePressedPoint.y
-					if (newX < 0) newX = 0
-					if (newY < 0) newY = 0
-					setLocation(newX, newY)
+					var x = e.locationOnScreen.x - mousePressedPoint.x
+					var y = e.locationOnScreen.y - mousePressedPoint.y
+					if (x < 0) x = 0
+					if (y < 0) y = 0
+
+					setLocation(x, y)
+					Settings.overlayX = x
+					Settings.overlayY = y
+
 					repaint()
 				}
 			}
 		}
 
 		var y = 30
-		var hotkey = 97 // default start at NumPad-1
+		var defaultHotkey = 97 // default start at NumPad-1
 		for ((name, enabled) in nameToEnabled) {
-			hotkeyToName[hotkey] = name
-			nameToHotkey[name] = hotkey
+			val useDefaultHotkey = !nameToHotkey.containsKey(name)
+			if (useDefaultHotkey) {
+				hotkeyToName[defaultHotkey] = name
+				nameToHotkey[name] = defaultHotkey++
+			}
 
-			val label = JLabel(labelText(name, hotkey), SwingConstants.CENTER)
+			val label = JLabel(labelText(name, nameToHotkey[name]!!), SwingConstants.CENTER)
 			label.font = INSERT_TO_HIDE_FONT
 			label.foreground = if (enabled) Color.GREEN else Color.RED
 			label.setBounds(0, y, width, 20)
@@ -76,14 +84,13 @@ object Overlay : JWindow() {
 					}
 				}
 			})
-			label.addMouseMotionListener(mma)
+			label.addMouseMotionListener(mouseMotionListener)
 
 			add(label)
 
 			nameToLabel[name] = label
 
 			y += 20
-			hotkey++
 		}
 
 		expandedHeight = y + 20
@@ -94,7 +101,7 @@ object Overlay : JWindow() {
 				mousePressedPoint = e.point
 			}
 		})
-		addMouseMotionListener(mma)
+		addMouseMotionListener(mouseMotionListener)
 	}
 
 	override fun repaint() {

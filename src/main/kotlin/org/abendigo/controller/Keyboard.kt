@@ -1,6 +1,9 @@
 package org.abendigo.controller
 
 import org.abendigo.controller.Plugins.hotkeyChangePlugin
+import org.abendigo.controller.network.Client
+import org.abendigo.controller.network.writeString
+import org.abendigo.controller.overlay.Overlay
 import org.jnativehook.keyboard.NativeKeyEvent
 import org.jnativehook.keyboard.NativeKeyListener
 import java.awt.Color

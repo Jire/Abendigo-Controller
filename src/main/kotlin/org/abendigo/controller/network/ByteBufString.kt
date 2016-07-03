@@ -1,4 +1,4 @@
-package org.abendigo.controller
+package org.abendigo.controller.network
 
 import io.netty.buffer.ByteBuf
 

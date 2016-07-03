@@ -1,7 +1,9 @@
-@file:JvmName("Controller")
+@file:JvmName("Main")
 
 package org.abendigo.controller
 
+import org.abendigo.controller.network.Client
+import org.abendigo.controller.overlay.Overlay
 import org.jnativehook.GlobalScreen
 import java.util.logging.Level
 import java.util.logging.Logger

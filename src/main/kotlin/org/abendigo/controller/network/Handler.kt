@@ -1,8 +1,9 @@
-package org.abendigo.controller
+package org.abendigo.controller.network
 
 import io.netty.buffer.ByteBuf
 import io.netty.channel.ChannelHandlerContext
 import io.netty.handler.codec.ByteToMessageDecoder
+import org.abendigo.controller.Plugins
 
 internal object Handler : ByteToMessageDecoder() {
 

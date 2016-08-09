@@ -10,7 +10,7 @@ mainClassName = "org.abendigo.controller.Main"
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
-    compile group: 'io.netty', name: 'netty-all', version: '4.1.1.Final'
+    compile group: 'io.netty', name: 'netty-all', version: '4.1.4.Final'
     compile group: 'com.1stleg', name: 'jnativehook', version: '2.0.2'
 }
 

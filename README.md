@@ -1,10 +1,12 @@
-[![Build Status](https://travis-ci.org/Jire/Abendigo-Controller.svg?branch=master)](https://travis-ci.org/Jire/Abendigo-Controller)
-[![Kotlin](https://img.shields.io/badge/kotlin-1.0.3-blue.svg)](http://kotlinlang.org)
-[![license](https://img.shields.io/badge/license-GPL%203.0-yellowgreen.svg)](https://github.com/Jire/Abendigo-Controller/blob/master/LICENSE)
-
 # Abendigo Controller
 The official controller client for [Abendigo](https://github.com/Jire/Abendigo)
 made with [Netty](http://netty.io) using Kotlin on the JVM.
+
+[![Build Status](https://travis-ci.org/Jire/Abendigo-Controller.svg?branch=master)](https://travis-ci.org/Jire/Abendigo-Controller)
+[![Dependency Status](https://www.versioneye.com/user/projects/5784c4d176ef400042e8d34f/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5784c4d176ef400042e8d34f)
+[![license](https://img.shields.io/github/license/Jire/Abendigo-Controller.svg)](https://github.com/Jire/Abendigo-Controller/blob/master/LICENSE)
+
+---
 
 We currently have the following features supported:
 * Overlay menu showing plugin status

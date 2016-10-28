@@ -9,6 +9,8 @@ made with [Netty](http://netty.io) using Kotlin on the JVM.
 
 ### The controller server is DISABLED by default in Abendigo now. See [this comment](https://github.com/Jire/Abendigo/blob/master/src/main/kotlin/org/abendigo/Abendigo.kt#L26).
 
+---
+
 We currently have the following features supported:
 * Overlay menu showing plugin status
 * Moveable overlay menu
